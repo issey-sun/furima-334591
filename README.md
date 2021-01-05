@@ -1,7 +1,7 @@
 # README
 ## users テーブル
 Association
-has_many :users_items
+has_many :user_items
 has_many :items
 
 | Column             | Type       | Options                    |
@@ -45,7 +45,7 @@ belongs_to :user_item
 | phone_number                 | string     | null: false                   |
 | user_item                    | references | null: false, foreign_key:true |
 
-## users_items テーブル
+## user_items テーブル
 Association
 belongs_to :user
 belongs_to :item
