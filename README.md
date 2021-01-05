@@ -29,7 +29,9 @@ has_one :user_item
 | item_condition_id  | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | preparation_day_id | integer    | null: false                    |
-| user               | references | null: false, foreign_key: true |
+| seller             | references | null: false, foreign_key: true |
+| postage_payer      | references | null: false, foreign_key: true |
+| introduce          | text       | null: false                    |
 
 ## purchase_records テーブル
 Association
