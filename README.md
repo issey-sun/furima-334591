@@ -18,7 +18,7 @@ has_many :items
 ## items テーブル
 Association
 belongs_to :user
-has_one :users_items
+has_one :user_item
 
 | Column             | Type       | Options                        |
 | -----------------  | ---------- | ------------------------------ |
@@ -28,17 +28,17 @@ has_one :users_items
 | category_id        | integer    | null: false                    |
 | item_condition_id  | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| preparation_day_id | references | null: false                    |
+| preparation_day_id | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ## purchase_records テーブル
 Association
-belongs_to :users_items
+belongs_to :user_item
 
 | Column                       | Type       | Options                       |
 | -----------------------------| ---------- | ----------------------------- |
 | post_code                    | string     | null: false                   |
-| prefecture                   | integer    | null: false                   |
+| prefecture_id                | integer    | null: false                   |
 | city_id                      | string     | null: false                   |
 | house_number                 | string     | null: false                   |
 | building_name                | string     |                               |
