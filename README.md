@@ -29,8 +29,8 @@ has_one :user_item
 | item_condition_id  | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | preparation_day_id | integer    | null: false                    |
-| seller             | references | null: false, foreign_key: true |
-| postage_payer      | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| postage_payer_id   | integer     | null: false                   |
 | introduce          | text       | null: false                    |
 
 ## purchase_records テーブル
