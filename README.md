@@ -3,7 +3,6 @@
 Association
 has_many :users_items
 has_many :items
-has_many :purchase_records
 
 | Column             | Type       | Options                    |
 | ------------------ | ---------- | ---------------------------|
@@ -18,24 +17,24 @@ has_many :purchase_records
 
 ## items テーブル
 Association
-has_many :users_items
+belongs_to :purchase_record
 has_many :users
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name             | string     | null: false                    |
-| price            | integer    | null: false                    |
-| postage_payer    | references | null: false, foreign_key: true |
-| category         | references | null: false, foreign_key: true |
-| item_condition   | references | null: false, foreign_key: true |
-| prefecture_id    | integer    | null: false                    |
-| preparation_day  | references | null: false, foreign_key: true |
-| seller           | references | null: false, foreign_key: true |
-| postage_payer    | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| -----------------  | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| price              | integer    | null: false                    |
+| postage_payer_id   | integer    | null: false,                   |
+| category_id        | integer    | null: false                    |
+| item_condition_id  | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| preparation_day_id | references | null: false                    |
+| seller             | references | null: false, foreign_key: true |
+| postage_payer      | references | null: false, foreign_key: true |
 
 ## purchase_records テーブル
 Association
-belongs_to :user
+belongs_to :items
 
 | Column                       | Type       | Options                       |
 | -----------------------------| ---------- | ----------------------------- |
@@ -44,17 +43,18 @@ belongs_to :user
 | city                         | string     | null: false                   |
 | house_number                 | string     | null: false                   |
 | building_name                | string     |                               |
-| phone_number                 | string     | unique: true                  |
-| user                         | references | null: false, foreign_key:true |
+| phone_number                 | string     | null: false                   |
+| user_item                    | references | null: false, foreign_key:true |
 
 ## users_items テーブル
 Association
 belongs_to :user
 belongs_to :item
+has_one :purchase_record
 
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
-| user_id   | references | foreign_key: true |
-| item_id   | references | foreign_key: true |
+| user      | references | foreign_key: true |
+| item      | references | foreign_key: true |
                
                        
