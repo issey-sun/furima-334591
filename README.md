@@ -24,7 +24,6 @@ has_one :user_item
 | -----------------  | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
 | price              | integer    | null: false                    |
-| postage_payer_id   | integer    | null: false,                   |
 | category_id        | integer    | null: false                    |
 | item_condition_id  | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
