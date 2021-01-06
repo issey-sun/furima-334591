@@ -60,15 +60,15 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Family name Full-width characters")
       end
-      it "フリガナ（名字）が空だと登録できない" do
-      @user.first_name_kana = nil
+      it "フリガナ（名字）が全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+      @user.first_name_kana = "kana"
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name kana can't be blank")
+      expect(@user.errors.full_messages).to include("First name kana Full-width characters")
       end
-      it "フリガナ（名前）が空だと登録できない" do
-      @user.family_name_kana = nil
+      it "フリガナ（名前）が全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+      @user.family_name_kana = "kana"
       @user.valid?
-      expect(@user.errors.full_messages).to include("Family name kana can't be blank")
+      expect(@user.errors.full_messages).to include("Family name kana Full-width characters")
       end
       it "passwordが空では登録できない" do
       @user.password = ""
