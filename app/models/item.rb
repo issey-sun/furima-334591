@@ -15,16 +15,16 @@ class Item < ApplicationRecord
   with_options presence: true do
   validates :name
   validates :introduce
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :item_condition_id, numericality: { other_than: 1 } 
-  validates :postage_payer_id, numericality: { other_than: 1 } 
-  validates :prefecture_id, numericality: { other_than: 1 } 
-  validates :preparation_day_id, numericality: { other_than: 1 } 
   validates :image
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-  
+  with_options presence: true, numericality: { other_than: 1 } do
+  validates :category_id
+  validates :item_condition_id
+  validates :postage_payer_id
+  validates :prefecture_id 
+  validates :preparation_day_id
+  end
 
-  
 end
