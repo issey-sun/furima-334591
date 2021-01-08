@@ -21,28 +21,28 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def edit
-    @item = Item.find(params[:id])
-    unless current_user == @item.user
-      redirect_to root_path
-    end
-  end
+  # def edit
+  #   @item = Item.find(params[:id])
+  #   unless current_user == @item.user
+  #     redirect_to root_path
+  #   end
+  # end
 
-  def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    if item.update(item_params)
-      redirect_to item_path(item.id)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   item = Item.find(params[:id])
+  #   item.update(item_params)
+  #   if item.update(item_params)
+  #     redirect_to item_path(item.id)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   item = Item.find(params[:id])
+  #   item.destroy
+  #   redirect_to root_path
+  # end
 
   private
 
