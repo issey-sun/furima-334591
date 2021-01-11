@@ -1,7 +1,7 @@
 # README
 ## users テーブル
 Association
-has_many :user_items
+has_many :orders (user_items)
 has_many :items
 
 | Column             | Type       | Options                    |
@@ -18,7 +18,7 @@ has_many :items
 ## items テーブル
 Association
 belongs_to :user
-has_one :user_item
+has_one :order (user_item)
 
 | Column             | Type       | Options                        |
 | -----------------  | ---------- | ------------------------------ |
@@ -34,7 +34,7 @@ has_one :user_item
 
 ## purchase_records テーブル
 Association
-belongs_to :user_item
+belongs_to :order (user_item)
 
 | Column                       | Type       | Options                       |
 | -----------------------------| ---------- | ----------------------------- |
@@ -44,9 +44,9 @@ belongs_to :user_item
 | house_number                 | string     | null: false                   |
 | building_name                | string     |                               |
 | phone_number                 | string     | null: false                   |
-| user_item                    | references | null: false, foreign_key:true |
+| order(user_item)             | references | null: false, foreign_key:true |
 
-## user_items テーブル
+## orders (user_items) テーブル
 Association
 belongs_to :user
 belongs_to :item
