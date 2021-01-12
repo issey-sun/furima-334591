@@ -35,7 +35,12 @@ end
       it "都道府県が入力されていないとき" do
         @order.prefecture_id = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture can't be blank.")
+        expect(@order.errors.full_messages).to include("Prefecture can't be blank", "Prefecture Input correctly")
+      end
+      it "都道府県が1を選択されているとき" do
+        @order.prefecture_id = 1
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Prefecture Input correctly")
       end
       it "市長区村が入力されていないとき" do
         @order.city = nil
@@ -54,6 +59,11 @@ end
       end
       it "電話番号が全角で入力されたとき" do
         @order.phone_number = "０９０１２３４５６７８"
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid.")
+      end
+      it "電話番号が英数字混合で入力されたとき" do
+        @order.phone_number = "090123abcde"
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number is invalid.")
       end
