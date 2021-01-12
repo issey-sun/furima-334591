@@ -8,9 +8,6 @@ before_action :authenticate_user!, only: :index
     end
   end
 
-  def new
-  end
-
   def create
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)

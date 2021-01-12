@@ -1,3 +1,0 @@
-class PurchaseRecordsController < ApplicationController
-
-end

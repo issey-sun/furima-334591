@@ -10,6 +10,11 @@ end
       it "内容に問題ない場合" do
         expect(@order).to be_valid
       end
+      it "建物名が空白の場合" do
+        @order.building_name = ""
+        expect(@order).to be_valid
+      end
+    end
       
     context '購入がうまくいかないとき' do
       it "郵便番号が入力されていないとき" do
@@ -89,6 +94,5 @@ end
       end
 
        end
-     end
    end
  end
