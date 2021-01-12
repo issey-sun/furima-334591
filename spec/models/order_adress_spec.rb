@@ -22,11 +22,6 @@ end
         @order.valid?
         expect(@order.errors.full_messages).to include("Post code can't be blank", "Post code Input correctly")
       end
-     it "郵便番号が空白で入力されたとき" do
-        @order.post_code = ""
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Post code can't be blank")
-      end
       it "郵便番号に-が抜けているとき" do
         @order.post_code = "12345678"
         @order.valid?
@@ -42,18 +37,8 @@ end
         @order.valid?
         expect(@order.errors.full_messages).to include("Prefecture can't be blank.")
       end
-     it "都道府県が--で入力された時" do
-        @order.prefecture_id = ""
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture can't be blank.")
-      end
       it "市長区村が入力されていないとき" do
         @order.city = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include("City can't be blank", "City is invalid. Input full-width characters.")
-      end
-     it "市長区村が空白で入力された時" do
-        @order.city = ""
         @order.valid?
         expect(@order.errors.full_messages).to include("City can't be blank", "City is invalid. Input full-width characters.")
       end
@@ -62,18 +47,8 @@ end
         @order.valid?
         expect(@order.errors.full_messages).to include("House number can't be blank")
       end
-     it "番地が空白で入力された時" do
-        @order.house_number = ""
-        @order.valid?
-        expect(@order.errors.full_messages).to include("House number can't be blank")
-      end
       it "電話番号が入力されていないとき" do
         @order.phone_number = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid.")
-      end
-     it "電話番号が空白で入力されたとき" do
-        @order.phone_number = ""
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid.")
       end
